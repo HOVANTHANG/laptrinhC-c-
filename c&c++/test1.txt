@@ -1,0 +1,9 @@
+4
+ho van A
+10 10 10
+ho van B
+8 8 8 
+ho van C
+7 7 7
+ho van D
+9 9 9  

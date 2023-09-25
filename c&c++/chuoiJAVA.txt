@@ -1,0 +1,57 @@
+s.length()--> trả về độ dài chuỗi
+
+s.charAt(i)--> lấy ra kí tự thứ i
+
+s.getChars(int begin,int end,arr[], vị trí bắt đầu)--> lấy kí tự ra lưu vào 1 mảng khác
+
+s.getBytes()--> Trả về số tương ứng của kí tự trong ACSII
+
+s1.equals(s2) --> So sánh coi 2 chuỗi giống nhau không/ result là: true or false
+
+s1.equalsIgnorecase(s2)--> SO sánh không phân biệt hoa thường 
+
+s1.compareTo(s2)--> So sánh trả về kết quả Dương,0,Âm
+
+s1.compareToIgnorecase(s2)-->không phân biệt hoa thường
+
+s1.regionMathes(begin của s1,s2,begin của s2,số kí tự)-->true/false
+
+s1.startWith(" ")-->kiểm tra chuỗi bắt đầu trả về true or false
+EX: s1="0354107289"   system.out.printfln(s1.startWith("035"))--> result:true
+
+s1.endWith(" ")-->Kiểm tra chuỗi kết thúc bằng
+
+s1.indexof(s2)--> kiểm tra s2 nằm trong s1 ở vị trí nào
+
+s1.indexof(s2,2)-->vị trí s2 trong s1 từ vị trí thứ 2 
+
+s1.lastIndexof(s2)-->Tìm kiếm từ phải sang trái
+
+s1.concat(s2) --> Cộng chuỗi
+
+s1.replaceAll(" "," ")-->Thay thế
+
+s1.toLowerCase()--> ALL thường
+
+s1.toUpperCase()-->ALL chữ hoa
+
+s1.trim()--> Xóa bỏ khoảng trắng dư thừa ở đàu,cuối chuỗi
+
+s1.subString(10)-->Cắt chuỗi con
+s1.subString(10,15)
+
+sao chép mảng:
++Toán Tử gán
++Clone 
++System.arraycopy()
+
+-Cắt chuỗi thành mảng
+s1.split(" ")-->cắt bằng dấu cách
+s1.split(",")-->cắt bằng dấu phẩy
+
+đơn vị tiền
+locale lc = new locale("vi","VN")
+NumberFormat num = NumberFormat.Instance(lc); 
+locale lc = new locale("en","USA")
+NumberFormat num = NumberFormat.Currency.Instance(lc); 
+

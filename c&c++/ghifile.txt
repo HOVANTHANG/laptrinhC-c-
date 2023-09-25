@@ -1,0 +1,7 @@
+3
+ho van thang 
+ 8     8     8    
+nguyen huy hoang
+ 9     7     5    
+mai phi dai
+ 9     8     10   

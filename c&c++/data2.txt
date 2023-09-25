@@ -1,0 +1,10 @@
+3
+ho van thang
+22 6 2004
+200000
+nguyen huy hoang
+16 6 2004
+100000
+vu thanh huyen
+1 1 2004
+5000000

@@ -1,0 +1,5 @@
+3
+thai gia thinh
+ 2.000000 C
+dang van tuan
+ 10.000000 D
