@@ -1,0 +1,6 @@
+N13DCCn, Nguyen Van C, 8/3/2003, 7
+N14DCCN, Nguyen Van B, 10/7/2003, 8
+N12DCCN, Nguyen Van D, 8/4/2005, 8
+N12DCCN, Nguyen Van E, 9/4/2005, 8
+N15DCTY, Nguyen Van Teo, 7/6/2004, 9
+N15DCTY, Nguyen Van F, 7/6/2004, 9

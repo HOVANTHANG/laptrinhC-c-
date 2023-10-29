@@ -18,6 +18,7 @@ class dathuc{
 					}
 			}
 			dathuc operator+(dathuc);
+			
 		      void tinhtong(dathuc k,dathuc l){
 		    	dathuc tong;
                  tong.hs=new double[k.n+5];
