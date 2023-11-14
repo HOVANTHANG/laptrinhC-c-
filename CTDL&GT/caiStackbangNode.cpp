@@ -40,6 +40,7 @@ struct Stack
 	}
 	~Stack(){ node<T>*p=Head; while(p){
 		Head=p->next;delete p;p=Head;}n=0;}
+		
 	int size(){return n;
 	}
 	bool empty(){
@@ -55,13 +56,6 @@ struct Stack
 		Head = new node<T>(x,Head);n++;
 	}
 };
-
-
-
-
-
-
-
 int main(){
 		Stack<int> S;
 		for(int x:{24,643,64,765,7,65,7}) S.push(x);
