@@ -1,6 +1,8 @@
 //Cai ??t vector
 #include<bits/stdc++.h>
 using namespace std;
+#ifndef __STACK__cpp__
+#define __STACK__cpp__ 
 template<class T>
 class rit
 {
@@ -51,12 +53,14 @@ class VECTOR{
         VECTOR(){
             n = cap = 0; 
             buf = NULL;
+        }
         VECTOR(int num,T x=0){ //Tao vector co num so x
         	n=cap=0; buf=NULL;
         	expand(num);
         	n=num;
         	for(int i=0;i<n;i++) buf[i]=x;
 		}
+	
 
         ~VECTOR(){
             if(buf) delete[]buf;
@@ -129,31 +133,10 @@ class VECTOR{
 		reverse_iterator rbegin(){
 			return buf+(n-1);
 		}
-			reverse_iterator rend(){
+		reverse_iterator rend(){
 			return buf-1;
-		}		
+		}	
+	
 };
 
-int main(){
-    VECTOR<int> V;
-    V.resize(7,6);
-    for(int i=0; i<V.size(); i++){
-        V[i] = i + V[i]*2;
-    }
-    cout << "\nV: ";
-    for(auto v:V) cout << v << " ";
-    // for(VECTOR<int>::iterator it = V.begin(); it!=V.end(); it++) cout << *it << " ";
-    // int x;
-    // cin >> x;
-    V.pop_back();
-    // V.push_back(x);
-    
-    cout << "\nV: ";
-    for(auto v:V) cout << v << " ";
-    auto it1=V.begin()+4;
-    V.insert(it1,0);
-    cout<<"\nV: ";for(auto v:V) cout<<v<<" ";
-    for(VECTOR<int>::reverse_iterator it2=V.rbegin();it2!=rend();it2++) cout<<*it2<<" ";
-    
-}
-
+#endif

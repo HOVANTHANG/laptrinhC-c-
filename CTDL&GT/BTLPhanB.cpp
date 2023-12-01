@@ -1,8 +1,9 @@
 #include<bits/stdc++.h>
+#include<vector>
 using namespace std;
 struct Node {
 	Node *links[26];
-	bool flag =false; 
+	bool flag = false; 
 	bool containsKey(char ch)
 	{
 		return links[ch-'a']!=NULL; 
@@ -24,6 +25,7 @@ struct Node {
 	}
 }; 
 class Trie{
+
 	private:
 	  Node *root; 
 	public:
@@ -72,20 +74,35 @@ class Trie{
 			return true; 
 	   	
 		} 
-	
+	void printPrefix() {
+        for (int i = 0; i < 26; i++) {
+            if (root->links[i] != NULL) {
+                cout << static_cast<char>('a' + i);
+            }
+        }
+        cout << endl;
+    }
 }; 
 int main(){
 	Trie trie;
-
-    // Thêm các xâu vào cây Trie
-    trie.Insert("apple");
+	int n;
+	cout<<"Nhap so luong xau:";
+	cin>>n;
+	vector<string> vt;
+	for(int i=0;i<n;i++){
+		string s;
+		cin>>s;
+		vt.push_back(s); 
+		trie.Insert(s);
+	}
+	// In ra xau la tien to cua xau khac
+    cout << "Xau la tien to cua xau khac: ";
+    trie.printPrefix();
+    cout << endl;
+    
+    
+    
    
-
-   cout<<(trie.startsWith("app"))<<endl;
-    
-    
-    
-    return 0;
   
 }
 

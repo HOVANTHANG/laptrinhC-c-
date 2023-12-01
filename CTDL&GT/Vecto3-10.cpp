@@ -56,4 +56,5 @@ int main(){
 	}
 	reverse(A.begin(),A.end());
 	for(auto x:A) cout<<x;
+ 
 }
