@@ -1,256 +1,131 @@
 #include<bits/stdc++.h>
-#include<list> 
 using namespace std;
 
-class SinhVien
+template<class T>
+struct node
 {
-		private:
-			string maSinhVien;							                                                       
-			string  hoVaTen;				    			
-			string queQuan;								
-			int namSinh;								
-			float diem;							 		
-
-		public:
-		SinhVien(string msv="",string qq="",string hvt="",int t=10,float d=10)        
-			{										
-				maSinhVien=msv;							
-				hoVaTen=hvt;								
-				queQuan=qq;																		
-				namSinh=t;								
-				diem=d;								
-			}
-		friend istream&operator>>(istream &cin,SinhVien &x) 		
-		{
-		cin.ignore(1);							
-		cout<<"\nNhap ma sinh vien:";getline(cin,x.maSinhVien);	
-		cout<<"Nhap ho va ten:";getline(cin,x.hoVaTen);		
-		cout<<"Nhap que quan:";getline(cin,x.queQuan);			
-		cout<<"Nhap nam sinh:";cin>>x.namSinh;				
-		cout<<"Nhap diem:";cin>>x.diem;		
-		return cin;			
-		}
-		friend ostream &operator<<(ostream &cout,SinhVien x)	
-		{
-		cout<<x.maSinhVien<<" "<<x.hoVaTen<<" "<<x.queQuan<<" "<<x.namSinh<<" "<<fixed<<setprecision(2)<<x.diem;		
-		cout<<"\n";	
-		return cout;								
-		}
-		bool operator < (SinhVien &x)					
-		{
-		return diem > x.diem;							
-		}
-		string getHovaTen()							
-		{
-		return hoVaTen;								
-		}
-		float getDiem() 								
-		{
-		return diem;									
-		}
-		string getQueQuan(){							
-		return queQuan;								
-		}
-} ;
-
-class DanhSach
-{
-private:
-    	
-list<SinhVien> sv;								
-public:
-	void ThemSinhVien(SinhVien &sv1) 				
+	T elem;
+	node *left,*right;
+	node(T elem,node<T> *L=0,node<T> *R=0)
 	{
-	sv.push_back(sv1);								
+		elem = elem;
+		left=L;
+		right =R;
 	}
-	void XuatSinhVien() 							
-	{
-//	for(auto item:sv){								
-//	cout<<item<<"\n";
-//	}
-	for(auto it=sv.begin();it!=sv.end();it++){
-		cout<<it->getHovaTen()<<" "; 
-	} 
-	}
-	void SapXep() 							
-	{
-	sv.sort();								
-	}
-	void TimKiem(string name) 					
-	{
-	int dem=0;									
-	for(auto item :sv){								
-	if(item.getHovaTen().compare(name)==0)				
-	{
-	dem++;									
-	cout<<"\nSinh vien nay ton tai!\n";					
-	cout<<item;									
-	}
-	}
-	if(dem==0) cout<<"\nKhong tim thay!";			
-	}
-	void DsHocSinhCoDiemMax() 					
-	{
-	float max=0;								
-	for(auto item :sv)	
-	{							
-	if(item.getDiem() > max){					
-	max=item.getDiem();							
-	}
-	}
-	for(auto item :sv)							
-	{										
-	if(item.getDiem()==max){						
-	cout<<item<<"\n";								
-	}
-	}
-	}
-	void DsHocSinhCoDiemMin() 						
-	{
-	float min=1000;							
-	for(auto item :sv)								
-	{
-	if(item.getDiem() < min){						
-	min=item.getDiem();							
-	}
-	}
-	for(auto item :sv)								
-	{
-	if(item.getDiem()==min){						
-	cout<<item<<"\n";							
-	}
-	}
-	}
-
-	void DsTrungTuyen() 							
-	{
-	int dem=0;									
-	cout<<"\nDanh sach sinh vien trung tuyen:\n";			
-	for(auto item : sv)								
-	{
-	if(item.getDiem()>=5)							
-	{
-	dem++;									
-	cout<<item<<"\n";							
-	}
-	}
-	if(dem==0)									
-	{
-	cout<<"\nKhong co sinh vien nao trung tuyen!";			
-	}
-	}
-	void ThongKe(){ 							
-	int dem=0,dem1=0,dem2=0;						
-	for(auto item:sv){								
-	if(item.getQueQuan()=="NA") dem++;				
-	else if(item.getQueQuan()=="HT") dem1++;				
-	else dem2++;								
-	}
-	cout<<"\nSo ban sinh vien nghe an: "<<dem;			
-	cout<<"\nSo ban sinh vien ha tinh: "<<dem1;		
-	cout<<"\nSo ban sinh vien tinh khac:  "<<dem2;			
-	}
-	void Erase(){
-		string name;
-		cin.ignore(1); 
-		cout<<"\nNhap ten hoc sinh ban muon xoa:";getline(cin,name); 
-	  int dem=0; 
-		for(auto it=sv.begin();it!=sv.end();it++){
-			if(it->getHovaTen().compare(name)==0){
-				dem++;
-				sv.erase(it); 
-			} 
-		} 
-		if(dem==0){
-			cout<<"\nKhong ton tai sinh vien nay!"; 
-		}else{
-			cout<<"\nDa Xoa" ;
-		} 
-	} 
-	
-
-
-} ;
-
-class App
-{
-private:
-DanhSach ds;								
-
-public:
-void run()									
-{
-int luachon;									
-do{
-
-cout<<"\n|----------------------------------LuaChon-------------------------------|";
-cout<<"\n|chon 1.Them Sinh Vien!                                                  |";
-cout<<"\n|chon 2.Xuat sinh Vien!                                                  |";
-cout<<"\n|chon 3.Sap Xep Sinh Vien Theo Diem!                                     |";
-cout<<"\n|chon 4.Tim Kiem sinh Vien!                                              |";
-cout<<"\n|chon 5.Tim sinh vien co diem max!                                       |";
-cout<<"\n|Chon 6.Tim sinh vien co diem min!                                       |";
-cout<<"\n|chon 7.Danh sach sinh vien trung tuyen!                                 |";
-cout<<"\n|chon 8.Thong ke sinh vien theo que quan!                                |";
-cout<<"\n|chon 9.Xoa sinh vien theo ten!                                          |";                                         
-cout<<"\n|chon 10.Thoat khoi chuong trinh!                                        |";
-cout<<"\n|--------------------------------!!!!!!!!!!------------------------------|";
-cout<<"\nNhap lua chon cua ban:";cin>>luachon;			
-
-switch (luachon)								
-{
-case 1:	{
-	int n; 
-SinhVien sv1 = SinhVien("","","",0,0);	
-cout<<"Nhap so luong sinh vien:";cin>>n;
-for(int i=0;i<n;i++){
-	cin>>sv1;									
- ds.ThemSinhVien(sv1);	
-}			
-						
-break;
-}
-case 2:
-ds.XuatSinhVien();							
-break;
-case 3:
-cout<<"\nDanh sach sinh vien theo diem giam dan!\n";		
-ds.SapXep();								
-ds.XuatSinhVien();						
-break;
-case 4:{
-string s;								
-cout<<"\nNhap ho va ten can tim:";cin.ignore(1);getline(cin,s);	
-ds.TimKiem(s);							
-break;
-}
-case 5:
-ds.DsHocSinhCoDiemMax();					
-break;
-case 6:
-ds.DsHocSinhCoDiemMin();						
-break;
-case 7:
-ds.DsTrungTuyen();						
-break;
-case 8:
-ds.ThongKe();							
-break;
-case 9:
-ds.Erase();							
-break;
-case 10:
-cout<<"\nExit ProGram!" ;					
-break;
-default:
-cout<<"\nNhap Khong hop le!" ;					
-}
-}while(luachon!=10);							
-}
 };
-int main(){
-App ungdung;								
-ungdung.run();
+template<class T,class K>
+void add(node<T> *&H,T x,K cmp)
+{
+	if(H==0)
+	{
+		H = new node<T>(x);
+	}else if(H->elem==x) return;
+	
+	else {
+	add(cmp(x<H->elem)?H->left:H->right,x,cmp);  
+	}
+}
+template<class T,class K>
+node<T> *find(node<T> *H,T x,K cmp)
+{
+	if(!H or H->elem==x) return H;
+	return find(x<H->elem ? H->left:H->right,x,cmp);
 }
 
 
+
+template<class T>
+T Max(node<T> *H)
+{
+//	c1 return H->right?Max(H->right):H->elem;
+   while(H->right) H->right;return H->elem;
+}
+
+template<class T,class K>
+void remove(node<T>*&H,T x,K cmp)
+{
+	if(!H) return;
+	if(H->elem==x)
+	{
+		node<T>*p=H;
+		if(!H->left) {
+		H=H->right;delete p;
+		}
+		else if(!H->right) 
+		  {
+		  H=H->left;
+		  delete p;
+	      }
+	    else {
+	    	H->elem=Max(H->left);remove(H->left,H->elem);
+		}
+	}else remove(cmp(x<H->elem)?H->left:H->right,x);
+
+}
+template<class T>
+void PRINT(node <T>*H,string p="\n")
+{
+	if(!H) return;
+	PRINT(H->left,p+"\t");
+	cout<<p<<H->elem;
+	PRINT(H->right,p+"\t");
+}
+template<class T>
+void inoder(node<T>*H,list<T> &L)
+{
+	if(H){
+		inoder(H->left,L);L.push_back(H->elem);inoder(H->right,L); 
+	}
+}
+
+template<class T>
+struct SET
+{
+         node<T> *root=0;
+		 int n;
+		 SET(){
+		 	root=0;n=0;
+		 }	
+		 int size(){
+		 	return n;
+		 }
+		 void insert(T x)
+		 {
+		 	if(!find(root,x))
+		 	{
+		 		n++;
+		 		add(root,x);
+			 }
+		 }
+		 void erase(T x)
+		 {
+		 	if(find(root,x)){
+		 		n--;remove(root,x);
+			 }
+		 }
+		 
+		 list<T> L;
+		 typedef typename list<T>::iterator iterator;
+		 iterator begin(){
+		 	L.clear();inoder(root,L);return L.begin();
+		 }
+		 iterator end(){
+		 	return L.end();
+		 }
+		 
+		 
+		 
+		 
+		 
+		 
+		 
+};
+
+int main(){
+        node<int> *root=0;
+        for(int x:{542,56,7,545,34,56,78,345}) add(root,x);
+         PRINT(root);
+         /*set<int,greater<int>> S;
+     for(int x:{542,56,7,545,34,56,78,345}) S.insert(x);
+     for(auto s:S) cout<<s<<" ";*/
+}

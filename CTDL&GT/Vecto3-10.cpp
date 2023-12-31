@@ -47,9 +47,10 @@ int main(){
 	vector<int> A(1,1);
 	for(;n>1;n--){
 		m=0;
-		for(auto &x:A){
-			m+=x*n;
-			x=m%10;
+	//	for(auto &x:A){
+			for(int i=0;i<A.size();i++){
+			m+=A[i]*n;
+			A[i]=m%10;
 			m/=10;
 		}
 	  for(;m>0;m/=10) A.push_back(m%10);

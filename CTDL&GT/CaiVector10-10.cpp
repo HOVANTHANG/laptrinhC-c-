@@ -34,7 +34,6 @@ class rit
    }
 };
 template<class T>
-
 class VECTOR{
     int n, cap;
     T *buf;
@@ -135,8 +134,6 @@ class VECTOR{
 		}
 		reverse_iterator rend(){
 			return buf-1;
-		}	
-	
+		}		
 };
-
 #endif

@@ -57,7 +57,7 @@ void maxchild(node *H,int &res){
     res=max(res,int(H->child.size()));
 }
 int main(){
-	node *root = new node(18);
+	node *root = new node(20);
 	preorder(root);cout<<"\n";
 	inorder(root);cout<<"\n";
 	postorder(root);

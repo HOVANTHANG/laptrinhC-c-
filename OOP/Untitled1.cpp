@@ -1,56 +1,58 @@
 #include<bits/stdc++.h>
 using namespace std;
-class Toado{
-	friend class Hinhtron;
+class MonHoc{
+	friend class DKHP; 
 	private:
-		float x,y;
+	string maMon;
+	string tenMon;
+	int soTinChi;
 	public:
-		Toado(float x,float y)
-		{
-			this->x=x;
-			this->y=y;
-		}
-		Toado(){
-			x=0;
-			y=0;
-		}
-};
-class Hinhtron{
-	private:
-		float bk;
-		Toado tam1,tam2;
-	public:
-		Hinhtron(float x, float y, float z):tam1(x,y)
-		{
-			bk=z;
-		}
-		Hinhtron():tam2(){
-			bk=0;
-		}
-		void nhap();
-		void in();
-		void in1();
-};
-void Hinhtron::nhap(){
-	cout<<"Nhap ban kinh va Toa do:\n";
-	cin>>this->bk;
-	cin>>tam2.x>>tam2.y;
-}
-void Hinhtron::in()
-		{
-			cout<<"("<<bk<<","<<tam1.x<<","<<tam1.y<<")"<<endl;
-		}
-void Hinhtron::in1(){
-			cout<<"("<<bk<<","<<tam2.x<<","<<tam2.y<<")"<<endl;
-		}
-int main()
-{
-	Hinhtron t(13,2,2);
-	Hinhtron t1;
-	t.in();
-	t1.nhap();
-	t1.in1();
-}
+	void Nhap(){
+		cin.ignore(1);
+		cout<<"Nhap ma mon:";getline(cin,maMon);
+		cout<<"Nhap ten mon:";getline(cin,tenMon);
+		cout<<"Nhap so tin chi:";cin>>soTinChi; 
+	} 
+	void xuat(){
+		cout<<maMon<<" "<<tenMon<<" "<<soTinChi; 
+	} 
+	string getMaMon(){
+		return maMon; 
+	} 
+	string gettenMon(){
+		return tenMon; 
+	} 
+	int getsoTC(){
+		return soTinChi; 
+	}
 
+};
+
+class DKHP{
+	private:
+	string maSinhVien;
+	string tenSinhVien;
+	int *check;
+	public:
+	DKHP(string msv="",string tsv="",int soMon=0){
+		maSinhVien=msv;
+		tenSinhVien=tsv;
+		check= new int[soMon]; 
+	} 
+	void Nhap(){
+		cout<<"Nhap ma sinh vien:";getline(cin,maSinhVien);
+		cout<<"Nhap ten sinh vien:";getline(cin,tenSinhVien);
+		for(int i=1;i<=check.length;i++){
+			
+		} 
+	} 
+	 
+	
+	
+}; 
+
+
+int main(){
+}
 
 

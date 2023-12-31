@@ -18,7 +18,7 @@ class DaThuc{
 			~DaThuc(){
 				delete[] hs;
 			}
-	       friend ostream &operator>>(ostream &cout,DaThuc x){
+	       friend ostream &operator<<(ostream &cout,DaThuc x){
 	         	for(int i=0;i<=x.n;i++){
 	         		cout<<x.hs[i];
 				 }

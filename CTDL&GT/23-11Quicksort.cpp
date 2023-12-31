@@ -2,7 +2,7 @@
 using namespace std;
 /*void QuickSort(int *a,int L,int R) //sx a[l]....a[R-1]
 {
-	if(L>R-1) return ;
+	if(L>=R-1) return ;
 	swap(a[L],a[(L+R)/2]);
 	int i=L;
 	for(int j=L+1;j<R;j++)
@@ -18,7 +18,7 @@ template<class T,class K=less<T>>
 void QSort(T *L,T *R,K cmp=less<T>()) //sx a[l]....a[R-1]
 {
 	if(L>=R-1) return ;
-	swap(*L,*(L+(R-L)/2));
+//	swap(*L,*(L+(R-L)/2));
 	T *i=L;
 	for(T*j=L+1;j<R;j++)
 		if(cmp(*j,*L)){

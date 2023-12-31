@@ -7,8 +7,8 @@ class doanvien{
 	   int nam;
 	   char madoanvien[30];
 	public:
-		doanvien();
-		doanvien(string ht,char *q,int nam,char *mdv);
+	//	doanvien();
+	//	doanvien(string ht,char *q,int nam,char *mdv);
 		doanvien& operator =(const doanvien &x){
 			nam=x.nam;
 			qq= new char[strlen(x.qq)];

@@ -1,9 +1,37 @@
 //Cai ??t vector
 #include<bits/stdc++.h>
 using namespace std;
-
 template<class T>
-
+class rit
+{
+   T *curr;
+   public:
+   	T * &getcurr(){
+   		return curr;
+	   }
+   rit(){
+   	curr=NULL;
+   }	
+   rit (T *c){
+   	curr=c;
+   }
+   rit<T> &operator =(rit<T> ri){
+   	curr = ri.getcurr();
+   }
+   T& operator*(){
+   	return *curr;
+   }
+   rit<T> operator ++(int){
+   	return curr--;
+   }
+   rit<T> operator ++(){
+   	return --curr;
+   }
+   bool operator!=(rit<T> ri){
+   	return curr!=ri.getcurr();
+   }
+};
+template<class T>
 class VECTOR{
     int n, cap;
     T *buf;
@@ -72,23 +100,58 @@ class VECTOR{
         iterator end(){
             return buf+n;
         }
+        void erase(iterator it)
+        {
+        	for(iterator it1 = it ;it1!=end;it1++){
+        		*it1=*(it1+1);
+        		n--;
+			}
+		}
+		void insert(iterator &it,T x){
+			if(n==cap){
+				int k=it-buf;
+			 expand(cap*2+1);
+		  it=buf+k;	 
+		}
+		for(iterator it1 = buf+(n-1);it1>=it;it1--) *(it1+1)=*it1;
+		*it=x;
+		it+=1;
+		n++;			
+		}
+		
+		typedef rit<T> reverse_iterator;
+		reverse_iterator rbegin(){
+			return buf+(n-1);
+		}
+		reverse_iterator rend(){
+			return buf-1;
+		}		
 };
 
 int main(){
     VECTOR<int> V;
-    V.resize(5,6);
-    for(int i=0; i<V.size(); i++){
-        V[i] = i + V[i]*2;
-    }
-    cout << "\nV: ";
-    for(auto v:V) cout << v << " ";
+    //V.resize(5,6);
+    //for(int i=0; i<V.size(); i++){
+    //    V[i] = i + V[i]*2;
+    //}
+    //cout << "\nV: ";
+    //for(auto v:V) cout << v << " ";
     // for(VECTOR<int>::iterator it = V.begin(); it!=V.end(); it++) cout << *it << " ";
     // int x;
     // cin >> x;
-    V.pop_back();
+    //V.pop_back();
     // V.push_back(x);
     
-    cout << "\nV: ";
+    //cout << "\nV: ";
+    //for(auto v:V) cout << v << " ";
+    V.resize(5,6); 
+    for(int i=0; i<V.size(); i++){
+       V[i] = i + V[i]*2;
+    }
+    for(auto v:V) cout << v << " ";
+    V.push_back(10);
+	
+  
     for(auto v:V) cout << v << " ";
 }
 

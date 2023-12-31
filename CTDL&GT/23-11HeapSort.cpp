@@ -39,8 +39,9 @@ void Heap_sort_v2(T *L, T *R, K cmp = less<T>()){
     }
 }
 int main(){
-	int a[]={15,13,27,49,53,20,68,11,35,53},n=sizeof(a)/sizeof(int);
-	Heap_sort_v2(a,a+n);
+	int a[]={15,13,27,49,53,20,68,11,60,53},n=sizeof(a)/sizeof(int);
+	  //Heap_sort_v2(a,a+n);
+	  Heap_sort(a,n); 
 	for(auto x:a) cout<<x<<" "; 
 }
 

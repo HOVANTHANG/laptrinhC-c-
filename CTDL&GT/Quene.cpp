@@ -17,7 +17,7 @@ int main(){
 	cout<<"\nLast :"<<q.back();
 	cout<<"\nSize:"<<q.size()<<endl;
 	q.back()=10;
-	q.front()=6;
+	q.front()=6; 
 	while(!q.empty()){
 		cout<<q.front()<<" ";q.pop();
 	}

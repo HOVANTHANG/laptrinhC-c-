@@ -50,9 +50,8 @@ struct slist{
     int n; //size
     node<T> *head, *trail = 0;
     slist(){
-        while(n){
-            pop_front();
-        }
+      	n=0;
+		head=trail=0;
     }
 
     ~slist(){
@@ -62,7 +61,7 @@ struct slist{
     int size(){
         return n;
     }
-    int empty(){
+    bool empty(){
         return n==0;
     }
     T &front(){
@@ -190,5 +189,13 @@ int main(){
     L.insert(itt, -2);
     cout << "\nSau khi chen L:";
     for(auto x:L) cout << x << " ";
+	/*slist<int> s;
+	//list<int> s; 
+	for(int x:{1,2,3,4,5,6,7,8,9}) s.push_front(x);
+	while(!s.empty()){
+		cout<<s.back()<<" ";
+		s.pop_back(); 
+	} */
 
+    
 }

@@ -1,6 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
-#ifndef__cpp__ 
+//#ifndef__cpp__ 
 
 //Cay nhi phan la mot cau truc du lieu duoc dinh nghia de quy nhu sau:
 //+ Moi cay rong la nhi phan(NULL)
@@ -57,6 +57,34 @@ void inorder(node<T> *H,string p="\n")
 		inorder(H->right,p+"\t");
 	}
 }
+/*template<class T>
+T count(node<T>*H){
+	if(!H)return 0;
+	return count(H->left)+count(H->right)+1; 
+} 
+template<class T>
+void in(node<T>*H){
+	if(!H) return ;
+	cout<<H->num<<" ";
+	
+} 
+template<class T>
+T count_leaf(node<T>*H){
+	if(!H) return 0;
+	if(H->left==0&&H->right==0) return 1;
+	return count_leaf(H->right)+count_leaf(H->left); 
+} 
+template<class T>
+T sum_leaf(node<T>*H){
+	if(!H) return 0;
+	if(H->left==0&&H->right==0) return H->elem;
+	return sum_leaf(H->right)+sum_leaf(H->left); 
+} 
+template<class T> 
+T sum(node<T>*H){
+	if(!H) return 0;
+	return sum(H->left)+sum(H->right)+H->elem; 
+} */
 template<class T>
 void remove(node<T> *&H)
 {
@@ -108,18 +136,24 @@ struct PQ  //priority=queue
   	remove(root);
   }
 };
-#endif
+//#endif
 
 
-/*int main()
-{
+int main()
+{    int s=0; 
 	node<int> *root = NULL;
 	for(int x:{100,90,72,63,36,30,25,17,27,8,15}) add(root,x);
 	cout<<"\nCay Heap:";inorder(root);
 	remove(root);
 	cout<<"\nCay Heap:";inorder(root);
+	/*cout<<"\n";in(root); 
+	cout<<"\n"<<count_leaf(root);
+	cout<<"\n"<<sum_leaf(root); 
+	cout<<"\n"<<count(root); 
+	cout<<"\n"<<sum(root); */
 	PQ<int> Q;
 	for(int x:{100,63,36,30,25,17,8,96,102,57}) Q.push(x);
+	cout<<"\n";
 	while(Q.size()){
 		cout<<Q.top()<<" ";
 		Q.pop();
@@ -128,4 +162,4 @@ struct PQ  //priority=queue
 }
 
 
-*/
+
